@@ -1,0 +1,490 @@
+<dsx>
+
+    <scene root="root" axis_length="0.1" />
+
+    <views default="first" >
+        <perspective id="first" near="0.1" far="500" angle="90">
+            <from x="6" y="6" z="6" />
+            <to x="0" y="0" z="0" />
+        </perspective>
+
+	   <perspective id="second" near="0.1" far="500" angle="90">
+            <from x="2" y="5" z="5" />
+            <to x="0" y="0" z="0" />
+        </perspective>
+
+        <perspective id="third" near="0.1" far="500" angle="90">
+            <from x="5" y="2" z="5" />
+            <to x="0" y="0" z="0" />
+        </perspective>
+
+        <perspective id="forth" near="0.1" far="500" angle="90">
+            <from x="10" y="10" z="10" />
+            <to x="0" y="0" z="0" />
+        </perspective>
+
+	<perspective id="fifth" near="0.1" far="500" angle="90">
+            <from x="-2" y="2" z="-2" />
+            <to x="0" y="2" z="0" />
+        </perspective>   
+    </views>
+
+    <illumination doublesided="1" local="1" >
+        <ambient r="0.5" g="0.5" b="0.5" a="0.2" />
+        <background r="0.53" g="0.804" b="0.92" a="1.0" />
+    </illumination>
+
+
+     <lights>
+
+        <omni id="omni_one" enabled="1" >
+            <location x="3" y="3" z="3" w="1" />
+            <ambient r="0" g="0" b="0" a="1.0" />
+            <diffuse r="1" g="1" b="1" a="1" />
+            <specular r="0" g="0" b="0" a="1" />
+        </omni>
+        
+        <spot id="spot_one" enabled="1" angle="90" exponent="1">
+            <target x="0" y="0" z="0" />
+            <location x="-3" y="3" z="3" />
+            <ambient r="0" g="0" b="0" a="1" />
+            <diffuse r="1" g="1" b="1" a="1" />
+            <specular r="0" g="0" b="0" a="1" />
+        </spot>
+
+        <omni id="omni_two" enabled="1" >
+            <location x="3" y="3" z="-3" w="1" />
+            <ambient r="0" g="0" b="0" a="1" />
+            <diffuse r="1" g="1" b="1" a="1" />
+            <specular r="0" g="0" b="0.4" a="1" />
+        </omni>
+        
+        <spot id="spot_two" enabled="1" angle="90" exponent="1">
+            <target x="0" y="0" z="0" />
+            <location x="-3" y="3" z="-3" />
+            <ambient r="0" g="0" b="0" a="1" />
+            <diffuse r="1" g="1" b="1" a="1" />
+            <specular r="0" g="0" b="0" a="1" />
+        </spot>
+
+    </lights>
+
+
+    <textures>
+	<texture id="sea" file="scenes/textures/sea.jpg" length_s="1" length_t="1" />
+	<texture id="sail" file="scenes/textures/sail.jpg" length_s="1" length_t="1" />
+	<texture id="fiberglass" file="scenes/textures/fiberglass.jpg" length_s="1" length_t="1" />
+	<texture id="deck" file="scenes/textures/deck.png" length_s="1" length_t="1" />
+	<texture id="buoy" file="scenes/textures/buoy.png" length_s="1" length_t="1" />
+	<texture id="sky" file="scenes/textures/sky.png" length_s="1" length_t="1" />
+    </textures>
+
+
+    <materials>
+        <material id="1">
+            <emission r="0.5" g="0.5" b="0.5" a="1" />
+            <ambient r="0" g="0" b="0" a="1" />
+            <diffuse r="0" g="0" b="0" a="1" />
+            <specular r="0" g="0" b="0" a="1" />
+            <shininess value="20" />
+        </material>
+	
+	<material id="2">
+            <emission r="0.2" g="0.2" b="0.2" a="1" />
+            <ambient r="0.8" g="0" b="0" a="1" />
+            <diffuse r="0.8" g="0" b="0" a="1" />
+            <specular r="0.8" g="0" b="0" a="1" />
+            <shininess value="20" />
+        </material>
+
+	<material id="3">
+            <emission r="0.6" g="0.6" b="0.6" a="1" />
+            <ambient r="0.8" g="0.8" b="0.8" a="1" />
+            <diffuse r="0.8" g="0.8" b="0.8" a="1" />
+            <specular r="0.8" g="0.8" b="0.8" a="1" />
+            <shininess value="20" />
+        </material>
+
+	<material id="4">
+            <emission r="0.8" g="0.8" b="0.8" a="1" />
+            <ambient r="0.8" g="0.8" b="0.8" a="1" />
+            <diffuse r="0.8" g="0.8" b="0.8" a="1" />
+            <specular r="0.8" g="0.8" b="0.8" a="1" />
+            <shininess value="20" />
+        </material>  
+    </materials>
+
+    <transformations>
+	<transformation id="sail">
+		<rotate axis="z" angle="90" />
+		<translate x="0" y="2" z="0" />
+		<rotate axis="y" angle="-90" />
+	</transformation>
+
+	<transformation id="hull1">
+		<rotate axis="z" angle="180" />
+		<translate x="0" y="-1" z="0.29" />
+		<rotate axis="y" angle="-90" />
+	</transformation>
+
+	<transformation id="hull2">
+		<scale x="1" y="1" z="-1" />
+		<rotate axis="z" angle="180" />
+		<translate x="0" y="-1" z="-0.29" />
+		<rotate axis="y" angle="-90" />
+	</transformation>
+
+	<transformation id="deck">
+		<scale x="0.94" y="-0.9" z="1" />
+		<translate x="0" y="-1.15" z="0.3" />
+		<rotate axis="z" angle="-5" />
+		<translate x="-0.2" y="0.15" z="0.0" />
+		<rotate axis="y" angle="-90" />
+	</transformation>
+    </transformations>
+
+
+    <animations>
+	<animation id="closer" span="4" type="linear">
+		<controlpoint xx="0.0" yy="0.0" zz="0.0" />
+		<controlpoint xx="0.0" yy="0.0" zz="12.0" />
+	</animation>
+
+	<animation id="turn" span="4" type="circular"
+		centerx="0.25" centery="0" centerz="0"
+		radius="0.25" startang="0" rotang="180" />
+
+	<animation id="farther" span="60" type="linear">
+		<controlpoint xx="0.0" yy="0.0" zz="0.0" />
+		<controlpoint xx="0.0" yy="0.0" zz="12.0" />
+		<controlpoint xx="-5.0" yy="0.0" zz="12.0" />
+		<controlpoint xx="243.0" yy="0.0" zz="12.0" />
+	</animation>
+
+	<animation id="bird" span="60" type="circular"
+		centerx="0" centery="0" centerz="0"
+		radius="1" startang="0" rotang="5760" />
+
+	<animation id="shark" span="60" type="circular"
+		centerx="0" centery="0" centerz="0"
+		radius="0.3" startang="0" rotang="5760" />
+
+    </animations>
+
+    <primitives>	
+	<primitive id="sail">
+		<patch orderU="3" orderV="3" partsU="20" partsV="20">
+			<controlpoint x="1.950" y="1.360" z="-0.310" />
+			<controlpoint x="1.950" y="1.360" z="-0.310" />
+			<controlpoint x="1.950" y="1.360" z="-0.310" />
+			<controlpoint x="1.950" y="1.360" z="-0.310" />
+			<controlpoint x="0.856" y="-0.641" z="0.118" />
+			<controlpoint x="0.960" y="0.016" z="0.921" />
+			<controlpoint x="1.164" y="0.740" z="1.039" />
+			<controlpoint x="1.314" y="1.438" z="0.500" />
+			<controlpoint x="-0.296" y="-0.854" z="-0.339" />
+			<controlpoint x="-0.287" y="-0.084" z="0.812" />
+			<controlpoint x="0.010" y="0.735" z="0.712" />
+			<controlpoint x="-0.145" y="1.489" z="-0.072" />
+			<controlpoint x="-1.381" y="-1.038" z="-1.102" />
+			<controlpoint x="-1.448" y="-0.177" z="0.171" />
+			<controlpoint x="-1.327" y="0.894" z="0.680" />
+			<controlpoint x="-0.972" y="1.691" z="-0.449" />
+		</patch>
+	</primitive>
+
+	<primitive id="hull">
+		<patch orderU="3" orderV="3" partsU="20" partsV="20">
+			<controlpoint x="-3.574" y="-1.299" z="-0.300" />
+			<controlpoint x="-2.359" y="0.272" z="-0.300" />
+			<controlpoint x="-1.167" y="0.453" z="-0.300" />
+			<controlpoint x="-0.722" y="0.626" z="-0.300" />
+			<controlpoint x="-0.796" y="-0.963" z="0.520" />
+			<controlpoint x="-0.444" y="-0.373" z="0.604" />
+			<controlpoint x="-0.524" y="0.386" z="0.248" />
+			<controlpoint x="-0.356" y="0.640" z="-0.300" />
+			<controlpoint x="0.524" y="-1.230" z="0.634" />
+			<controlpoint x="0.593" y="-0.536" z="0.689" />
+			<controlpoint x="0.568" y="0.381" z="0.290" />
+			<controlpoint x="0.500" y="0.524" z="-0.300" />
+			<controlpoint x="3.832" y="-1.577" z="-0.300" />
+			<controlpoint x="3.668" y="-0.451" z="-0.300" />
+			<controlpoint x="3.417" y="0.200" z="-0.300" />
+			<controlpoint x="1.249" y="0.344" z="-0.300" />
+		</patch>
+	</primitive>
+
+	<primitive id="deck">
+		<patch orderU="3" orderV="1" partsU="20" partsV="20">
+			<controlpoint x="-3.574" y="-1.299" z="-0.300" />
+			<controlpoint x="-3.574" y="-1.299" z="-0.300" />
+			<controlpoint x="-0.796" y="-0.963" z="-1.120" />
+			<controlpoint x="-0.796" y="-0.963" z="0.520" />
+			<controlpoint x="0.524" y="-1.230" z="-1.234" />
+			<controlpoint x="0.524" y="-1.230" z="0.634" />
+			<controlpoint x="3.832" y="-1.577" z="-0.300" />
+			<controlpoint x="3.832" y="-1.577" z="-0.300" />
+		</patch>
+	</primitive>
+
+	<primitive id="sea1">
+		<chessboard du="4" dv="4" textureref="sea" su="0" sv="0">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea2">
+		<chessboard du="4" dv="4" textureref="sea" su="1" sv="0">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea3">
+		<chessboard du="4" dv="4" textureref="sea" su="2" sv="0">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea4">
+		<chessboard du="4" dv="4" textureref="texture" su="3" sv="0">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea5">
+		<chessboard du="4" dv="4" textureref="sea" su="0" sv="2">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea6">
+		<chessboard du="4" dv="4" textureref="sea" su="1" sv="2">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea7">
+		<chessboard du="4" dv="4" textureref="sea" su="2" sv="2">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sea8">
+		<chessboard du="4" dv="4" textureref="sea" su="3" sv="2">
+			<c1 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<c2 r="0.8" g="0.8" b="0.8" a="1.0" />
+			<cs r="0.8" g="0.8" b="0.8" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="sun">
+		<chessboard du="4" dv="4" textureref="sky" su="2" sv="1">
+			<c1 r="0.53" g="0.804" b="0.92" a="1.0" />
+			<c2 r="0.53" g="0.804" b="0.92" a="1.0" />
+			<cs r="1.0" g="0.5" b="0.0" a="1.0" />
+		</chessboard>
+	</primitive>
+
+	<primitive id="ship">
+		<vehicle>
+			<part primitiveref="sail" transformationref="sail" materialref="1" textureref="sail" />
+			<part primitiveref="hull" transformationref="hull1" materialref="1" textureref="fiberglass" />
+			<part primitiveref="hull" transformationref="hull2" materialref="1" textureref="fiberglass" />
+			<part primitiveref="deck" transformationref="deck" materialref="1" textureref="deck" />
+		</vehicle>
+	</primitive>
+
+	<primitive id="bird">
+		<cylinder base="1" top="0" height="1" slices="6" stacks="3" />
+	</primitive>
+
+	<primitive id="buoy">
+		<torus inner="0.5" outer="1.0" slices="10" loops="10" />
+	</primitive>
+
+	<primitive id="shark">
+		<triangle x1="0.0" y1="0.0" z1="0.0" x2="0.0" y2="1.0" z2="0.0" x3="0.0" y3="0.0" z3="1.0" />
+	</primitive>
+
+    </primitives>
+
+    <components>
+
+        <component id="root">
+            <transformation>
+		<scale x="0.5" y="0.5" z="0.5" />
+            </transformation>
+
+            <materials>
+                <material id="1" />
+            </materials>
+
+            <texture id="none" />
+
+            <children>
+		<componentref id="boat" />
+		<componentref id="sea1" />
+		<componentref id="sea2" />
+		<componentref id="buoy" />
+		<componentref id="shark" />
+		<componentref id="sun" />
+            </children>
+        </component>
+
+        <component id="boat">
+            <transformation>
+		<translate x="-3" y="1.5" z="-7" />
+            </transformation>
+
+	    <animation>
+		<animationref id="closer" />
+		<animationref id="turn" />
+		<animationref id="farther" />
+	    </animation>
+
+            <materials>
+                <material id="1" />
+            </materials>
+
+            <texture id="none" />
+
+            <children>
+            	<primitiveref id="ship" />
+		<componentref id="bird" />
+            </children>
+        </component>
+
+
+	<component id="bird">
+	    <transformation>
+		<scale x="0.6" y="0.3" z="0.6" />
+		<translate x="0" y="4" z="0" />
+            </transformation>
+
+	    <animation>
+		<animationref id="bird" />
+	    </animation>
+
+	    <materials>
+                <material id="2" />
+            </materials>
+
+            <texture id="none" />
+
+            <children>
+            	<primitiveref id="bird" />
+            </children>
+	</component>
+
+	<component id="sea1">
+            <transformation>
+		<rotate axis="x" angle="-90" />
+		<scale x="48" y="18" z="48" />
+            </transformation>
+
+            <materials>
+                <material id="1" />
+            </materials>
+
+            <texture id="sea" />
+
+            <children>
+            	<primitiveref id="sea1" />
+		<primitiveref id="sea2" />
+		<primitiveref id="sea3" />
+		<primitiveref id="sea4" />
+            </children>
+        </component>
+
+	<component id="sea2">
+            <transformation>
+		<rotate axis="x" angle="-90" />
+		<scale x="48" y="18" z="48" />
+            </transformation>
+
+            <materials>
+                <material id="1" />
+            </materials>
+
+            <texture id="sea" />
+
+            <children>
+            	<primitiveref id="sea5" />
+		<primitiveref id="sea6" />
+		<primitiveref id="sea7" />
+		<primitiveref id="sea8" />
+            </children>
+        </component>
+
+	<component id="sun">
+            <transformation>
+		<scale x="64" y="64" z="18" />
+		<translate x="0" y="0" z="-48" />
+            </transformation>
+
+            <materials>
+                <material id="4" />
+            </materials>
+
+            <texture id="sky" />
+
+            <children>
+            	<primitiveref id="sun" />
+            </children>
+        </component>
+
+	<component id="buoy">
+            <transformation>
+		<rotate axis="x" angle="90" />
+		<scale x="0.7" y="0.7" z="0.7" />
+		<translate x="0" y="2" z="13" />
+            </transformation>
+
+            <materials>
+                <material id="1" />
+            </materials>
+
+            <texture id="buoy" />
+
+            <children>
+            	<primitiveref id="buoy" />
+            </children>
+        </component>
+
+	<component id="shark">
+            <transformation>
+		<translate x="0" y="3" z="13" />
+            </transformation>
+
+	    <animation>
+		<animationref id="shark" />
+	    </animation>
+
+            <materials>
+                <material id="3" />
+            </materials>
+
+            <texture id="none" />
+
+            <children>
+            	<primitiveref id="shark" />
+            </children>
+        </component>	
+
+    </components>
+
+</dsx>
